@@ -15,12 +15,15 @@
                 width: 1000px;
                 height: 500px;
             }
+            .cont{
+                width: 900px;
+            }
         </style>
     </head>
     <body>
         <center>
             <?php 
-
+                //connessione
                 $host = "db";
                 $user = "root";
                 $pass = "cicco";
@@ -28,7 +31,10 @@
 
                 $mysql = new mysqli($host,$user,$pass,$db);
 
+                //query
                 $result = $mysql->query("select * from blogs");
+
+                //tabella
                 echo "<table>
                         <tr>
                             <th>Id</th>
@@ -40,7 +46,7 @@
                     echo"<tr>
                             <td>".$row["id"]."</td>
                             <td>".$row["titolo"]."</td>
-                            <td>".$row['contenuto']."</td>
+                            <td class='cont'>".$row['contenuto']."</td>
                             <td>".$row['data']."</td>
                         </tr>";
                 }
